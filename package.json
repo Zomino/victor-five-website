@@ -1,0 +1,33 @@
+{
+  "name": "victor-five-website",
+  "version": "1.0.0",
+  "description": "Website for Victor Five",
+  "homepage": "https://github.com/Victor-Five/victor-five-website#readme",
+  "bugs": {
+    "url": "https://github.com/Victor-Five/victor-five-website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victor-Five/victor-five-website.git"
+  },
+  "license": "MIT",
+  "author": "Zou Minowa",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.11",
+    "typescript": "5.9.2"
+  }
+}
