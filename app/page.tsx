@@ -4,13 +4,15 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   Heading,
   IconButton,
   Section,
+  Tabs,
   Text,
   VisuallyHidden,
 } from "@radix-ui/themes";
-import { InstagramLogoIcon } from "@radix-ui/react-icons";
+import { EnvelopeClosedIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export default function Page() {
   const submit = async () => {
@@ -34,46 +36,66 @@ export default function Page() {
 
   return (
     <Container m="5">
-      <header>
-        <Heading size="9" align="right">
-          VICTOR FIVE
-        </Heading>
-      </header>
+      <Flex asChild direction="column" gap="5">
+        <header>
+          <Heading size="9">VICTOR FIVE</Heading>
+          <Text color="gray" size="6">
+            Force Your Way!
+          </Text>
+        </header>
+      </Flex>
       <main>
         <Section>
           <VisuallyHidden>
-            <Heading as="h2">Bio</Heading>
+            <Heading as="h2">About</Heading>
           </VisuallyHidden>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            iure quae impedit ratione libero. Quae fugiat labore quam quos sit
-            nihil, culpa tenetur molestias earum expedita iure rem? Esse, rerum.
-          </Text>
+          <Flex asChild direction="column">
+            <Text>VIP PERSONAL TRAINER</Text>
+          </Flex>
+          <Text size="1">Fat Loss · Body Recomposition · Muscle Building</Text>
         </Section>
         <Section>
-          <Box>
-            <form action={submit}>
-              <Button type="submit" variant="outline">
-                Send email
-              </Button>
-            </form>
-          </Box>
+          <Tabs.Root></Tabs.Root>
+          <form action={submit}>
+            <Button type="submit" variant="outline">
+              Send email
+            </Button>
+          </form>
         </Section>
         <Section>
-          <Heading as="h2">Socials</Heading>
-          <Box pt="3">
-            <IconButton asChild variant="outline">
-              <a
-                href="https://www.instagram.com/victorfive_"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AccessibleIcon label="Instagram">
-                  <InstagramLogoIcon />
-                </AccessibleIcon>
-              </a>
-            </IconButton>
-          </Box>
+          <Heading as="h2">Connect</Heading>
+          <nav>
+            <Flex asChild gap="3">
+              <ul style={{ padding: 0 }}>
+                <Box asChild>
+                  <li>
+                    <IconButton asChild variant="outline">
+                      <a
+                        href="https://www.instagram.com/victorfive_"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <AccessibleIcon label="Open Instagram">
+                          <InstagramLogoIcon />
+                        </AccessibleIcon>
+                      </a>
+                    </IconButton>
+                  </li>
+                </Box>
+                <Box asChild>
+                  <li>
+                    <IconButton asChild variant="outline">
+                      <a href="mailto:victorfivecoaching@gmail.com">
+                        <AccessibleIcon label="Send email">
+                          <EnvelopeClosedIcon />
+                        </AccessibleIcon>
+                      </a>
+                    </IconButton>
+                  </li>
+                </Box>
+              </ul>
+            </Flex>
+          </nav>
         </Section>
       </main>
     </Container>
