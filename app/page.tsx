@@ -1,13 +1,16 @@
 import { Resend } from "resend";
 import {
+  AccessibleIcon,
   Box,
   Button,
   Container,
   Heading,
+  IconButton,
   Section,
   Text,
   VisuallyHidden,
 } from "@radix-ui/themes";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export default function Page() {
   const submit = async () => {
@@ -54,6 +57,22 @@ export default function Page() {
                 Send email
               </Button>
             </form>
+          </Box>
+        </Section>
+        <Section>
+          <Heading as="h2">Socials</Heading>
+          <Box pt="3">
+            <IconButton asChild variant="outline">
+              <a
+                href="https://www.instagram.com/victorfive_"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AccessibleIcon label="Instagram">
+                  <InstagramLogoIcon />
+                </AccessibleIcon>
+              </a>
+            </IconButton>
           </Box>
         </Section>
       </main>

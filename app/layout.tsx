@@ -1,5 +1,5 @@
 import "@radix-ui/themes/styles.css";
-import { Flex, Text, Theme } from "@radix-ui/themes";
+import { Box, Flex, Text, Theme } from "@radix-ui/themes";
 
 export default function RootLayout({
   children,
@@ -12,7 +12,7 @@ export default function RootLayout({
       <body style={{ margin: 0 }}>
         <Theme accentColor="gray">
           <Flex direction="column" style={{ minHeight: "100vh" }}>
-            <div style={{ flexGrow: 1 }}>{children}</div>
+            <Box flexGrow="1">{children}</Box>
             <footer>
               <Flex justify="center">
                 <Text size="1">
