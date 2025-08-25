@@ -1,5 +1,15 @@
-import "@radix-ui/themes/styles.css";
-import { Box, Flex, Text, Theme } from "@radix-ui/themes";
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
+import {
+  Box,
+  ColorSchemeScript,
+  MantineProvider,
+  mantineHtmlProps,
+  Stack,
+  Text,
+} from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 
 export default function RootLayout({
   children,
@@ -7,21 +17,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+        <title>Victor Five</title>
+      </head>
       {/* Reset default margin to position copyright with flexbox. */}
       <body style={{ margin: 0 }}>
-        <Theme accentColor="gray">
-          <Flex direction="column" style={{ minHeight: "100vh" }}>
-            <Box flexGrow="1">{children}</Box>
-            <footer>
-              <Flex justify="center">
-                <Text size="1">
-                  © {new Date().getFullYear()} Victor Five. All rights reserved.
-                </Text>
-              </Flex>
-            </footer>
-          </Flex>
-        </Theme>
+        <MantineProvider
+          theme={{
+            headings: {
+              sizes: {
+                h1: { fontSize: "4rem", lineHeight: "1.1" },
+              },
+            },
+          }}
+        >
+          <Stack h="100vh">
+            <Notifications />
+            <Box flex="1">{children}</Box>
+            <Box component="footer">
+              <Text c="dimmed" size="sm" ta="center">
+                © {new Date().getFullYear()} Victor Five. All rights reserved.
+              </Text>
+            </Box>
+          </Stack>
+        </MantineProvider>
       </body>
     </html>
   );
