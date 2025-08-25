@@ -59,7 +59,7 @@ export default function BookSessionForm({
         message: "Your information has been sent.",
         color: "gray",
       });
-    } catch (error) {
+    } catch {
       notifications.show({
         title: "Error",
         message:
