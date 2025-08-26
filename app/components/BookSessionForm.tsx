@@ -56,7 +56,7 @@ export default function BookSessionForm({
       form.reset();
       notifications.show({
         title: "Success",
-        message: "Your information has been sent.",
+        message: "Your information has been received.",
         color: "gray",
       });
     } catch {
