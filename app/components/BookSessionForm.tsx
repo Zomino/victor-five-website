@@ -136,9 +136,9 @@ export default function BookSessionForm({
           <Grid.Col span={{ base: 6, sm: 3 }}>
             <InputWrapper label="Weight (kg)">
               <NumberInput
-                key={form.key("heightCm")}
+                key={form.key("weightKg")}
                 placeholder="e.g. 63"
-                {...form.getInputProps("heightCm")}
+                {...form.getInputProps("weightKg")}
               />
             </InputWrapper>
           </Grid.Col>
