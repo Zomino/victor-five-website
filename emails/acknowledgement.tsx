@@ -1,36 +1,31 @@
 import {
   Html,
-  Head,
-  Preview,
   Body,
-  Container,
-  Section,
   Heading,
+  Preview,
+  Section,
   Text,
-  Hr,
 } from "@react-email/components";
 
-export default function Acknowledgement() {
+interface AcknowledgementProps {
+  firstName?: string;
+}
+
+export default function Acknowledgement(props: AcknowledgementProps) {
   return (
     <Html>
-      <Head />
-      <Preview>Victor Five - Thank You</Preview>
-      <Body style={{ padding: "20px" }}>
-        <Container>
-          <Section>
-            <Heading>Thank You</Heading>
-          </Section>
-          <Text>Hello,</Text>
+      <Body>
+        <Preview>Thank you for your booking request</Preview>
+        <Heading>VICTOR FIVE</Heading>
+        <Section>
+          <Text>Hello {props.firstName},</Text>
           <Text>
-            Thank you for taking the time to fill out my contact form and
-            questionnaire. I’ve received your submission and will review it
-            shortly.
+            Thank you for your booking request. I will review your information
+            and get back to you shortly.
           </Text>
-          <Text>You can expect to hear back from me soon.</Text>
-          <Hr />
           <Text>Best regards,</Text>
           <Text>Victor Five</Text>
-        </Container>
+        </Section>
       </Body>
     </Html>
   );

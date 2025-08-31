@@ -4,10 +4,6 @@ import {
   Container,
   Flex,
   Stack,
-  TabsTab,
-  Tabs,
-  TabsList,
-  TabsPanel,
   Text,
   Title,
   VisuallyHidden,
@@ -21,28 +17,52 @@ import {
   type BookSessionPayload,
   bookSessionValidationSchema,
 } from "./lib/validation/bookSession";
+import Acknowledgement from "../emails/acknowledgement";
+import Notification from "../emails/notification/notification";
 
 export default function Page() {
   const handleSubmit = async (payload: BookSessionPayload) => {
     "use server";
 
-    const result = bookSessionValidationSchema.safeParse(payload);
-
-    if (!result.success) {
-      logger.error(result.error);
-      throw new Error(result.error.message);
-    }
-
     try {
+      const result = bookSessionValidationSchema.safeParse(payload);
+
+      if (!result.success) {
+        logger.error(result.error);
+        throw new Error(result.error.message);
+      }
+
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const { data } = await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: "zouminowa@gmail.com",
-        subject: "Hello",
-        html: "<h1>Hello</h1>",
+
+      const acknowledgementResponse = await resend.emails.send({
+        from: "Victor Five <noreply@victorfivecoaching.com>",
+        to: payload.email,
+        subject: "Acknowledgement",
+        react: Acknowledgement({ firstName: payload.firstName }),
       });
 
-      logger.info(payload);
+      if (acknowledgementResponse.error) {
+        logger.error(acknowledgementResponse.error);
+        throw new Error(acknowledgementResponse.error.message);
+      }
+
+      logger.info(
+        `Acknowledgement email sent: ${acknowledgementResponse.data.id}`
+      );
+
+      const notificationResponse = await resend.emails.send({
+        from: "Victor Five <noreply@victorfivecoaching.com>",
+        to: process.env.NOTIFICATION_EMAIL,
+        subject: "New Booking Request",
+        react: Notification(payload),
+      });
+
+      if (notificationResponse.error) {
+        logger.error(notificationResponse.error);
+        throw new Error(notificationResponse.error.message);
+      }
+
+      logger.info(`Notification email sent: ${notificationResponse.data.id}`);
     } catch (error) {
       logger.error(error);
       throw new Error(error.message);
@@ -98,7 +118,7 @@ export default function Page() {
         </section>
         <Box component="section" mt="xl">
           <Title order={2} ta={{ base: "left", sm: "center" }}>
-            Book
+            Request Booking
           </Title>
           <BookSessionForm onSubmit={handleSubmit} />
         </Box>
