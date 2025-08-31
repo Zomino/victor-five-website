@@ -100,18 +100,7 @@ export default function Page() {
           <Title order={2} ta={{ base: "left", sm: "center" }}>
             Book
           </Title>
-          <Tabs color="black" defaultValue="session" mt="md">
-            <TabsList style={{ flexWrap: "nowrap" }}>
-              <TabsTab value="session">1:1 Session</TabsTab>
-              <TabsTab value="inquiry">Private Consultation</TabsTab>
-            </TabsList>
-            <TabsPanel value="session" pt="md">
-              <BookSessionForm onSubmit={handleSubmit} />
-            </TabsPanel>
-            <TabsPanel value="inquiry" pt="md">
-              <Text>Form</Text>
-            </TabsPanel>
-          </Tabs>
+          <BookSessionForm onSubmit={handleSubmit} />
         </Box>
         <Box component="section" mt="xl">
           <Title order={2} ta={{ base: "left", sm: "center" }}>
