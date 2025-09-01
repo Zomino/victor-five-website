@@ -120,7 +120,9 @@ export default function Page() {
           <Title order={2} ta={{ base: "left", sm: "center" }}>
             Request Booking
           </Title>
-          <BookSessionForm onSubmit={handleSubmit} />
+          <Box mt="md">
+            <BookSessionForm onSubmit={handleSubmit} />
+          </Box>
         </Box>
         <Box component="section" mt="xl">
           <Title order={2} ta={{ base: "left", sm: "center" }}>
