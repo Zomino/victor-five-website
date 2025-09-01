@@ -3,7 +3,11 @@
   "image": "mcr.microsoft.com/devcontainers/javascript-node:dev-24-bookworm",
   "remoteUser": "node",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      // Required for npx serve to work
+      "packages": "xsel"
+    }
   },
   "customizations": {
     "vscode": {

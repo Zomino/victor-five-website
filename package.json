@@ -18,7 +18,8 @@
     "dev:email": "email dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true npm run build && npx serve .next/analyze --no-clipboard --port 8888"
   },
   "dependencies": {
     "@mantine/core": "^8.2.7",
@@ -26,6 +27,7 @@
     "@mantine/form": "^8.2.7",
     "@mantine/hooks": "^8.2.7",
     "@mantine/notifications": "^8.2.7",
+    "@next/bundle-analyzer": "^15.5.2",
     "@react-email/components": "0.5.1",
     "@sentry/nextjs": "^10.6.0",
     "@tabler/icons-react": "^3.34.1",
