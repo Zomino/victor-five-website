@@ -19,7 +19,7 @@ import { zod4Resolver } from "mantine-form-zod-resolver";
 import {
   type BookSessionPayload,
   bookSessionValidationSchema,
-} from "../lib/validation/bookSession";
+} from "@lib/validation/bookSession";
 
 export default function BookSessionForm({
   onSubmit,

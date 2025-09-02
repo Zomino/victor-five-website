@@ -1,6 +1,6 @@
 import { Html, Body, Heading, Text, Section } from "@react-email/components";
 
-import { BookSessionPayload } from "../../app/lib/validation/bookSession";
+import { BookSessionPayload } from "../../lib/validation/bookSession";
 
 export default function Notification(props: BookSessionPayload) {
   return (
