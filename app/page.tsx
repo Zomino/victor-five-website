@@ -1,61 +1,78 @@
 import {
   Box,
-  Container,
+  Button,
+  Center,
   Stack,
   Text,
   Title,
   VisuallyHidden,
 } from "@mantine/core";
+import Link from "next/link";
+
+import ConnectSection from "@components/ConnectSection";
+
+const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <Center h="100%" visibleFrom="sm">
+        {children}
+      </Center>
+      <Box hiddenFrom="sm">{children}</Box>
+    </>
+  );
+};
 
 export default function Page() {
   return (
-    <Container size="xs">
-      <Box component="header" m="lg">
-        <Stack gap="md">
-          <Title order={1} ta={{ base: "left", sm: "center" }}>
-            VICTOR FIVE
-          </Title>
-          <Text
-            c="dimmed"
-            size="2rem"
-            // fs="italic"
-            ta={{ base: "left", sm: "center" }}
-          >
-            Force Your Way!
-          </Text>
-        </Stack>
-      </Box>
-      <Box component="main" m="lg" mt="xl">
-        <section>
+    <ResponsiveContainer>
+      <Stack gap="xl">
+        <Box component="header">
+          <Stack gap="lg">
+            <Title order={1} ta="center" m="xl">
+              VICTOR FIVE
+            </Title>
+            <Text c="gray.7" size="2rem" ta="center">
+              Force Your Way!
+            </Text>
+          </Stack>
+        </Box>
+        <Box component="main">
           <VisuallyHidden>
             <Title order={2}>About</Title>
           </VisuallyHidden>
           <Stack gap="0">
-            <Text size="lg" ta={{ base: "left", sm: "center" }}>
+            <Text size="lg" ta="center">
               VIP Personal Trainer
             </Text>
-            <Text
-              c="dimmed"
-              visibleFrom="sm"
-              size="sm"
-              ta={{ base: "left", sm: "center" }}
-            >
-              Fat Loss | Body Recomposition | Muscle Building
+            <Text c="gray.7" visibleFrom="sm" size="sm" ta="center">
+              <span>Fat Loss </span>
+              <span aria-hidden="true">|</span>
+              <span> Body Recomposition </span>
+              <span aria-hidden="true">|</span>
+              <span> Muscle Building</span>
             </Text>
-            <Stack gap={0} hiddenFrom="sm">
-              <Text c="dimmed" size="sm">
+            <Stack gap={0} hiddenFrom="sm" ta="center">
+              <Text c="gray.7" size="sm">
                 Fat Loss
               </Text>
-              <Text c="dimmed" size="sm">
+              <Text c="gray.7" size="sm" ta="center">
                 Body Recomposition
               </Text>
-              <Text c="dimmed" size="sm">
+              <Text c="gray.7" size="sm" ta="center">
                 Muscle Building
               </Text>
             </Stack>
           </Stack>
-        </section>
-      </Box>
-    </Container>
+        </Box>
+        <Box ta="center">
+          <Button color="black" component={Link} href="/booking">
+            Book
+          </Button>
+        </Box>
+        <Box>
+          <ConnectSection />
+        </Box>
+      </Stack>
+    </ResponsiveContainer>
   );
 }

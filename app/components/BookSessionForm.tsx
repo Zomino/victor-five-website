@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Box,
   Button,
   Fieldset,
   Grid,
@@ -57,7 +58,7 @@ export default function BookSessionForm({
       notifications.show({
         title: "Success",
         message: "Your information has been received.",
-        color: "gray",
+        color: "gray.7",
       });
     } catch {
       notifications.show({
@@ -284,13 +285,11 @@ export default function BookSessionForm({
           </Grid.Col>
         </Grid>
       </Fieldset>
-      <Grid mt="md">
-        <Grid.Col span={{ base: 9, sm: 6 }}>
-          <Button color="black" type="submit">
-            Submit
-          </Button>
-        </Grid.Col>
-      </Grid>
+      <Box mt="md" ta="end">
+        <Button color="black" type="submit">
+          Submit
+        </Button>
+      </Box>
     </form>
   );
 }

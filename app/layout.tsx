@@ -7,19 +7,14 @@ import {
   mantineHtmlProps,
   Stack,
   Text,
-  ActionIcon,
   Box,
-  Flex,
-  Title,
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
-import { IconBrandInstagram, IconMail } from "@tabler/icons-react";
 
 export const metadata = {
   title: "Victor Five",
   // applicationName will be shown for PWA
   applicationName: "Victor Five",
-  description: "Personal training and nutrition coaching.",
   authors: [{ name: "Zou Minowa", url: "https://github.com/Zomino" }],
   creator: "Zou Minowa",
   publisher: "Zou Minowa",
@@ -72,6 +67,7 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
+        <meta name="description" content="VIP Personal Trainer - Victor Five. Force Your Way! Specializing in Fat Loss, Body Recomposition, and Muscle Building." />
       </head>
       {/* Reset default margin to position copyright with flexbox. */}
       <body style={{ margin: 0 }}>
@@ -86,51 +82,11 @@ export default function RootLayout({
         >
           <Stack h="100vh">
             <Notifications />
-            <Box flex="1">{children}</Box>
-            <Box component="section" mt="xl">
-              <Title order={2} ta={{ base: "left", sm: "center" }}>
-                Connect
-              </Title>
-              <Box component="nav" ta={{ base: "left", sm: "center" }}>
-                <Flex
-                  component="ul"
-                  display="inline-flex"
-                  gap="sm"
-                  mt="sm"
-                  p="0"
-                  style={{ listStyle: "none" }}
-                >
-                  <li>
-                    <ActionIcon
-                      color="black"
-                      component="a"
-                      href="https://www.instagram.com/victorfive_"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="lg"
-                      variant="outline"
-                      aria-label="Open Instagram"
-                    >
-                      <IconBrandInstagram />
-                    </ActionIcon>
-                  </li>
-                  <li>
-                    <ActionIcon
-                      color="black"
-                      component="a"
-                      href="mailto:victorfivecoaching@gmail.com"
-                      size="lg"
-                      variant="outline"
-                      aria-label="Send email"
-                    >
-                      <IconMail />
-                    </ActionIcon>
-                  </li>
-                </Flex>
-              </Box>
+            <Box flex="1" px={{ sm: "xs", md: "md" }} py={{ base: "md", sm: "xl" }}>
+              {children}
             </Box>
             <Box component="footer">
-              <Text c="dimmed" size="sm" ta="center">
+              <Text c="gray.7" size="sm" ta="center">
                 © {new Date().getFullYear()} Victor Five. All rights reserved.
               </Text>
             </Box>

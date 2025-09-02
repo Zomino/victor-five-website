@@ -1,5 +1,6 @@
-import { Box, Container, Title } from "@mantine/core";
+import { Box, Container, Stack, Title } from "@mantine/core";
 import { Resend } from "resend";
+import Link from "next/link";
 
 import Acknowledgement from "@emails/acknowledgement";
 import Notification from "@emails/notification/notification";
@@ -9,8 +10,20 @@ import {
   bookSessionValidationSchema,
 } from "@lib/validation/bookSession";
 import BookSessionForm from "@components/BookSessionForm";
+import ConnectSection from "@components/ConnectSection";
 
-export function Page() {
+const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <>
+      <Container size="xs" visibleFrom="sm">
+        {children}
+      </Container>
+      <Box hiddenFrom="sm">{children}</Box>
+    </>
+  );
+};
+
+export default function Page() {
   const handleSubmit = async (payload: BookSessionPayload) => {
     "use server";
 
@@ -60,15 +73,31 @@ export function Page() {
   };
 
   return (
-    <Container size="xs">
-      <section>
-        <Title order={2} ta={{ base: "left", sm: "center" }}>
-          Request Booking
-        </Title>
-        <Box mt="md">
-          <BookSessionForm onSubmit={handleSubmit} />
+    <ResponsiveContainer>
+      <Stack>
+        <Box component="header">
+          <Title order={1} ta="center" mx={{ sm: "md", md: "auto" }}>
+            <Link
+              aria-label="Go to homepage"
+              href="/"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              VICTOR FIVE
+            </Link>
+          </Title>
         </Box>
-      </section>
-    </Container>
+        <Box component="main" m="lg" mt="xl">
+          <Title order={2} ta="center">
+            Request Booking
+          </Title>
+          <Box mt="md">
+            <BookSessionForm onSubmit={handleSubmit} />
+          </Box>
+        </Box>
+        <Box mt="xl">
+          <ConnectSection />
+        </Box>
+      </Stack>
+    </ResponsiveContainer>
   );
 }
