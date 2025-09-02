@@ -10,6 +10,8 @@ import {
   Box,
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Victor Five",
@@ -67,7 +69,10 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
-        <meta name="description" content="VIP Personal Trainer - Victor Five. Force Your Way! Specializing in Fat Loss, Body Recomposition, and Muscle Building." />
+        <meta
+          name="description"
+          content="VIP Personal Trainer - Victor Five. Force Your Way! Specializing in Fat Loss, Body Recomposition, and Muscle Building."
+        />
       </head>
       {/* Reset default margin to position copyright with flexbox. */}
       <body style={{ margin: 0 }}>
@@ -82,8 +87,14 @@ export default function RootLayout({
         >
           <Stack h="100vh">
             <Notifications />
-            <Box flex="1" px={{ sm: "xs", md: "md" }} py={{ base: "md", sm: "xl" }}>
+            <Box
+              flex="1"
+              px={{ sm: "xs", md: "md" }}
+              py={{ base: "md", sm: "xl" }}
+            >
               {children}
+              <Analytics />
+              <SpeedInsights />
             </Box>
             <Box component="footer">
               <Text c="gray.7" size="sm" ta="center">
