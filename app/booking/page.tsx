@@ -88,7 +88,7 @@ export default function Page() {
         </Box>
         <Box component="main" m="lg" mt="xl">
           <Title order={2} ta="center">
-            Request Booking
+            Book 1:1 Session – Zurich
           </Title>
           <Box mt="md">
             <BookSessionForm onSubmit={handleSubmit} />
