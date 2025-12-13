@@ -7,9 +7,11 @@ import {
   Title,
   VisuallyHidden,
 } from "@mantine/core";
+import Image from "next/image";
 import Link from "next/link";
 
 import ConnectSection from "@components/ConnectSection";
+import heroImage from "./hero.jpg";
 
 const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -65,9 +67,37 @@ export default function Page() {
           </Stack>
         </Box>
         <Box ta="center">
-          <Button color="black" component={Link} href="/booking">
-            Book
-          </Button>
+          <Box
+            component="figure"
+            m={0}
+            mx="auto"
+            maw={420}
+            style={{
+              borderRadius: "1.5rem",
+              overflow: "hidden",
+            }}
+          >
+            <Image
+              src={heroImage}
+              alt="Victor Five on stage"
+              placeholder="blur"
+              priority
+              sizes="(max-width: 768px) 90vw, 420px"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+              }}
+            />
+          </Box>
+        </Box>
+        <Box ta="center">
+          <Stack gap="xs" align="center">
+            <Button color="black" component={Link} href="/booking" miw={220}>
+              Book 1:1 Session Zurich
+            </Button>
+          </Stack>
         </Box>
         <Box>
           <ConnectSection />
