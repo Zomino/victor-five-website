@@ -50,7 +50,7 @@ export default function Page() {
       </Box>
       <Box ta="center">
         <LinkButton color="black" href="/booking">
-          Book 1:1 Session - Zurich
+          Book 1:1 Session - Zürich
         </LinkButton>
       </Box>
       <Box ta="center">
