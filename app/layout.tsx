@@ -2,12 +2,13 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 import {
+  Box,
   ColorSchemeScript,
+  Container,
   MantineProvider,
-  mantineHtmlProps,
   Stack,
   Text,
-  Box,
+  mantineHtmlProps,
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { Analytics } from "@vercel/analytics/next";
@@ -87,15 +88,16 @@ export default function RootLayout({
         >
           <Stack h="100vh">
             <Notifications />
-            <Box
-              flex="1"
-              px={{ sm: "xs", md: "md" }}
+            <Container
+              size="md"
+              px={{ base: 0, sm: "md" }}
               py={{ base: "md", sm: "xl" }}
+              style={{ flex: 1 }}
             >
               {children}
               <Analytics />
               <SpeedInsights />
-            </Box>
+            </Container>
             <Box component="footer">
               <Text c="gray.7" size="sm" ta="center">
                 © {new Date().getFullYear()} Victor Five. All rights reserved.
