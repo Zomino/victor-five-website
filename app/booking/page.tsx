@@ -74,7 +74,7 @@ export default function Page() {
             </Link>
           </Title>
         </Box>
-        <Box component="main" m="lg" mt="xl">
+        <Box component="main" m="lg">
           <Title order={2} ta="center">
             Book 1:1 Session - Zurich
           </Title>
