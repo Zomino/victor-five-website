@@ -91,7 +91,7 @@ export default function RootLayout({
             <Container
               size="md"
               px={{ base: 0, sm: "md" }}
-              py={{ base: 0, sm: "xl" }}
+              py={{ base: "md", sm: "xl" }}
               style={{ flex: 1 }}
             >
               {children}

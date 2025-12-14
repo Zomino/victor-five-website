@@ -12,17 +12,6 @@ import {
 import BookSessionForm from "@components/BookSessionForm";
 import ConnectSection from "@components/ConnectSection";
 
-const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <Container size="xs" visibleFrom="sm">
-        {children}
-      </Container>
-      <Box hiddenFrom="sm">{children}</Box>
-    </>
-  );
-};
-
 export default function Page() {
   const handleSubmit = async (payload: BookSessionPayload) => {
     "use server";
@@ -73,10 +62,9 @@ export default function Page() {
   };
 
   return (
-    <ResponsiveContainer>
       <Stack>
-        <Box component="header">
-          <Title order={1} ta="center" mx={{ sm: "md", md: "auto" }}>
+        <Box component="header" m="xl">
+          <Title order={1} ta="center">
             <Link
               aria-label="Go to homepage"
               href="/"
@@ -98,6 +86,5 @@ export default function Page() {
           <ConnectSection />
         </Box>
       </Stack>
-    </ResponsiveContainer>
   );
 }
