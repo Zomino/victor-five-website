@@ -1,17 +1,10 @@
-import {
-  Box,
-  Button,
-  Center,
-  Stack,
-  Text,
-  Title,
-  VisuallyHidden,
-} from "@mantine/core";
+import { Box, Center, Stack, Text, Title, VisuallyHidden } from "@mantine/core";
 import Image from "next/image";
-import Link from "next/link";
 
 import ConnectSection from "@components/ConnectSection";
 import heroImage from "./hero.jpg";
+
+import LinkButton from "@components/LinkButton";
 
 const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -93,11 +86,9 @@ export default function Page() {
           </Box>
         </Box>
         <Box ta="center">
-          <Stack gap="xs" align="center">
-            <Button color="black" component={Link} href="/booking" miw={220}>
-              Book 1:1 Session Zurich
-            </Button>
-          </Stack>
+          <LinkButton color="black" href="/booking">
+            Book 1:1 Session - Zurich
+          </LinkButton>
         </Box>
         <Box>
           <ConnectSection />
