@@ -1,15 +1,7 @@
-import {
-  Box,
-  Button,
-  Center,
-  Stack,
-  Text,
-  Title,
-  VisuallyHidden,
-} from "@mantine/core";
-import Link from "next/link";
+import { Box, Center, Stack, Text, Title, VisuallyHidden } from "@mantine/core";
 
 import ConnectSection from "@components/ConnectSection";
+import LinkButton from "@components/LinkButton";
 
 const ResponsiveContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -65,9 +57,9 @@ export default function Page() {
           </Stack>
         </Box>
         <Box ta="center">
-          <Button color="black" component={Link} href="/booking">
+          <LinkButton color="black" href="/booking">
             Book
-          </Button>
+          </LinkButton>
         </Box>
         <Box>
           <ConnectSection />
