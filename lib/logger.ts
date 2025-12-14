@@ -1,12 +1,4 @@
 import "server-only";
+import pino from "pino";
 
-const logger = {
-  info: (...args: unknown[]) => {
-    console.info(...args);
-  },
-  error: (...args: unknown[]) => {
-    console.error(...args);
-  },
-};
-
-export default logger;
+export default pino();

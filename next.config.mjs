@@ -10,6 +10,7 @@ const nextConfig = {
       "@mantine/form",
     ],
   },
+  serverExternalPackages: ["pino", "thread-stream"],
 };
 
 const withBundleAnalyzer = bundleAnalyzer({
