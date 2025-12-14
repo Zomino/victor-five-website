@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import ConnectSection from "@components/ConnectSection";
 import heroImage from "./hero.jpg";
+import styles from "./page.module.css";
 
 import LinkButton from "@components/LinkButton";
 
@@ -60,15 +61,17 @@ export default function Page() {
           </Stack>
         </Box>
         <Box ta="center">
+          <LinkButton color="black" href="/booking">
+            Book 1:1 Session - Zurich
+          </LinkButton>
+        </Box>
+        <Box ta="center">
           <Box
             component="figure"
             m={0}
             mx="auto"
             maw={420}
-            style={{
-              borderRadius: "1.5rem",
-              overflow: "hidden",
-            }}
+            className={styles.heroFigure}
           >
             <Image
               src={heroImage}
@@ -84,11 +87,6 @@ export default function Page() {
               }}
             />
           </Box>
-        </Box>
-        <Box ta="center">
-          <LinkButton color="black" href="/booking">
-            Book 1:1 Session - Zurich
-          </LinkButton>
         </Box>
         <Box>
           <ConnectSection />

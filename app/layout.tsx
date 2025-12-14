@@ -88,7 +88,12 @@ export default function RootLayout({
         >
           <Stack h="100vh">
             <Notifications />
-            <Container size="md" px="md" py={{ base: "md", sm: "xl" }} style={{ flex: 1 }}>
+            <Container
+              size="md"
+              px={{ base: 0, sm: "md" }}
+              py={{ base: 0, sm: "xl" }}
+              style={{ flex: 1 }}
+            >
               {children}
               <Analytics />
               <SpeedInsights />
