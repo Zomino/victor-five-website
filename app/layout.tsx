@@ -90,8 +90,8 @@ export default function RootLayout({
             <Notifications />
             <Container
               size="md"
-              px={{ base: 0, sm: "md" }}
-              py={{ base: "md", sm: "xl" }}
+              px={{ base: 0, xs: "md" }}
+              py={{ base: "md", xs: "xl" }}
               style={{ flex: 1 }}
             >
               {children}

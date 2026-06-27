@@ -1,4 +1,4 @@
-import { Box, Stack, Text, Title, VisuallyHidden } from "@mantine/core";
+import { Box, Flex, Stack, Text, Title, VisuallyHidden } from "@mantine/core";
 import Image from "next/image";
 
 import ConnectSection from "@components/ConnectSection";
@@ -8,6 +8,8 @@ import styles from "./page.module.css";
 import LinkButton from "@components/LinkButton";
 
 export default function Page() {
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK;
+
   return (
     <Stack gap="xl">
       <Box component="header">
@@ -49,16 +51,30 @@ export default function Page() {
         </Stack>
       </Box>
       <Box ta="center">
-        <LinkButton color="black" href="/booking">
-          Book 1:1 Session - Zürich
-        </LinkButton>
+        <Flex
+          direction={{ base: "column", xs: "row" }}
+          align="stretch"
+          justify="center"
+          gap="sm"
+          w="fit-content"
+          mx="auto"
+        >
+          <LinkButton color="black" href="/booking">
+            Apply for Coaching
+          </LinkButton>
+          {calLink && (
+            <LinkButton color="black" variant="outline" href="/schedule">
+              Schedule a Meeting
+            </LinkButton>
+          )}
+        </Flex>
       </Box>
       <Box ta="center">
         <Box
           component="figure"
           m={0}
           mx="auto"
-          maw={420}
+          maw={{ base: "100%", xs: 420 }}
           className={styles.heroFigure}
         >
           <Image
@@ -66,7 +82,7 @@ export default function Page() {
             alt="Victor Five on stage"
             placeholder="blur"
             priority
-            sizes="(max-width: 768px) 90vw, 420px"
+            sizes="(max-width: 36em) 100vw, 420px"
             style={{
               display: "block",
               width: "100%",

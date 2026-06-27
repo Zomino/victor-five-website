@@ -15,7 +15,10 @@ import {
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
+import { IconArrowLeft } from "@tabler/icons-react";
 import { zod4Resolver } from "mantine-form-zod-resolver";
+
+import LinkButton from "@components/LinkButton";
 
 import {
   type BookSessionPayload,
@@ -285,11 +288,19 @@ export default function BookSessionForm({
           </Grid.Col>
         </Grid>
       </Fieldset>
-      <Box mt="md" ta="end">
+      <Group mt="md" justify="flex-end">
+        <LinkButton
+          color="black"
+          variant="transparent"
+          href="/"
+          leftSection={<IconArrowLeft size={18} />}
+        >
+          Back
+        </LinkButton>
         <Button color="black" type="submit">
           Submit
         </Button>
-      </Box>
+      </Group>
     </form>
   );
 }
