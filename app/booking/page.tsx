@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Title } from "@mantine/core";
+import { Box, Stack, Title } from "@mantine/core";
 import { Resend } from "resend";
 import Link from "next/link";
 
@@ -10,7 +10,6 @@ import {
   bookSessionValidationSchema,
 } from "@lib/validation/bookSession";
 import BookSessionForm from "@components/BookSessionForm";
-import ConnectSection from "@components/ConnectSection";
 
 export default function Page() {
   const handleSubmit = async (payload: BookSessionPayload) => {
@@ -76,14 +75,11 @@ export default function Page() {
         </Box>
         <Box component="main" m="lg">
           <Title order={2} ta="center">
-            Book 1:1 Session - Zürich
+            Apply for Coaching - Zürich
           </Title>
           <Box mt="md">
             <BookSessionForm onSubmit={handleSubmit} />
           </Box>
-        </Box>
-        <Box mt="xl">
-          <ConnectSection />
         </Box>
       </Stack>
   );

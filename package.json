@@ -22,6 +22,7 @@
     "analyze": "ANALYZE=true npm run build && npx serve .next/analyze --no-clipboard --port 8888"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@mantine/core": "^9.4.0",
     "@mantine/dates": "^9.4.0",
     "@mantine/form": "^9.4.0",

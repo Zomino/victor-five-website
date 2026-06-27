@@ -1,10 +1,9 @@
 .heroFigure {
-  border-radius: 1.5rem;
   overflow: hidden;
 }
 
-@media (max-width: 48em) {
+@media (min-width: 36em) {
   .heroFigure {
-    border-radius: 0;
+    border-radius: 1.5rem;
   }
 }
