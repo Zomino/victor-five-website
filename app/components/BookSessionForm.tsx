@@ -291,7 +291,7 @@ export default function BookSessionForm({
       <Group mt="md" justify="flex-end">
         <LinkButton
           color="black"
-          variant="subtle"
+          variant="transparent"
           href="/"
           leftSection={<IconArrowLeft size={18} />}
         >

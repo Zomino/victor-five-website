@@ -45,7 +45,7 @@ export default function Page() {
       <Box ta="center">
         <LinkButton
           color="black"
-          variant="subtle"
+          variant="transparent"
           href="/"
           leftSection={<IconArrowLeft size={18} />}
         >
