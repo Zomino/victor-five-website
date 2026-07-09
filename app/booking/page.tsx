@@ -11,6 +11,7 @@ import {
 } from "@lib/validation/bookSession";
 import BookSessionForm from "@components/BookSessionForm";
 import ConnectSection from "@components/ConnectSection";
+import BookingPromoModal from "@components/BookingPromoModal";
 
 export default function Page() {
   const handleSubmit = async (payload: BookSessionPayload) => {
@@ -62,6 +63,8 @@ export default function Page() {
   };
 
   return (
+    <>
+      <BookingPromoModal />
       <Stack>
         <Box component="header" m="xl">
           <Title order={1} ta="center">
@@ -86,5 +89,6 @@ export default function Page() {
           <ConnectSection />
         </Box>
       </Stack>
+    </>
   );
 }
